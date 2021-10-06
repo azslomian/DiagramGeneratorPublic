@@ -1,0 +1,127 @@
+﻿h2 {
+    margin-top: 0.5em;
+}
+
+h4 {
+    margin-top: 1em;
+}
+
+.submit-button {
+    align-content: center;
+    margin-top: 1.5em;
+    /*margin-bottom: 2.3em;*/
+}
+
+.back-button {
+    align-content: flex-start;
+    margin-bottom: 1em;
+}
+
+/*body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+input [type=submit]{
+    width: auto;
+}
+
+
+
+.theForm {
+    border: 1px solid grey;
+    background-color: grey;
+    max-width: 600px;
+}
+    .theForm .submit-button {
+        align-self: center;
+    }
+
+    .theForm .submit-button input[type=submit] {
+        background-color: green;
+        color: white;
+    }
+
+label{
+    font-size: 16px;
+}
+
+input, textarea {
+    font-size: 16px;
+    width: 200px;
+}
+
+.product-props {
+    font-size: small;
+}
+
+    .product-props ul li {
+        font-size: small;
+        list-style-type: none;*/ /* Remove bullets */
+    /*}
+
+    .product-props table tbody tr td {
+        align-content: center;
+    }
+
+    .product-props button {
+        background-color: green;
+        color: white;
+    }
+
+.product-info {
+    border: 1px solid grey;
+    display: inline-block;
+    width: 600px;
+    max-width: 600px;
+}
+
+    .product-info h3 {
+        margin: 0.8em;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+
+.product-info img {
+    margin: 1em;
+    max-height: 100px;
+    max-width: 100px;
+    float: left;
+    border: 1px solid black;
+}
+
+#loginToggle {
+    cursor: pointer;
+}
+
+.popup-form {
+    padding: 5px;
+    border: 2px black inset;
+    display: inline-block;
+    width: 590px
+}
+
+    .popup-form input {
+        width: 200px;
+    }
+
+    .popup-form label {
+        width: 150px;
+        display: inline-block;
+    }
+
+    .popup-form input[type=checkbox], .popup-form input[type=submit] {
+        width: auto;
+    }
+
+menu li {
+    display: inline;
+}
+
+    menu li:after {
+        content: '|';
+    }
+
+    menu li:last-of-type::after {
+        content: "";
+    }*/

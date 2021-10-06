@@ -1,0 +1,272 @@
+﻿@model DiagramSummaryPageViewModel
+
+<div class="back-button">
+    <input type="button" class="btn btn-info" value="Back" onclick="window.location= '@Url.Action( "Index", "DiagramOutput",  new { diagramId = Model.DiagramId })'" />
+</div>
+
+<h2 class="text-center">@Model.Name</h2>
+<h5 class="text-center">@Model.Description</h5>
+@Html.HiddenFor(x => x.DiagramId)
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Purpose</th>
+            <th scope="col">Descritpion</th>
+            <th colspan="2">
+                @if (Model.Process == null)
+                {
+                    <div class="submit-button">
+                        <input type="button" class="btn btn-primary" value="Add Process" onclick="window.location= '@Url.Action("AddProcess", "Process", new { diagramId = Model.DiagramId })'" />
+                    </div>
+                }
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Process != null)
+        {
+            <tr>
+                <td>@Model.Process.Lp</td>
+                <td>@Model.Process.Name</td>
+                <td>@Model.Process.Purpose</td>
+                <td>@Model.Process.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Operations</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+            <th scope="col">Type</th>
+            <th scope="col">Number of Employees</th>
+            <th scope="col">Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Process?.Operations != null)
+        {
+            @foreach (var data in Model.Process.Operations)
+            {
+                <tr>
+                    <td>@data.Lp</td>
+                    <td>@data.Name</td>
+                    <td>@data.Description</td>
+                    <td>@data.Type</td>
+                    <td>@data.Employees</td>
+                    <td>@data.TimeInMinutes</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Inputs</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+            <th scope="col">Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Inputs)
+        {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+                <td>@data.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Methods</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Methods)
+        {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Requirements</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Requirements)
+        {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Outputs</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+            <th scope="col">Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Outputs)
+        {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+                <td>@data.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Criteria</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Criteria)
+        {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h4 class="text-center">Suppliers</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Suppliers)
+        {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Clients</h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Clients)
+        {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="text-center">Validation</h4>
+@foreach (var data in Model.Validation)
+{
+    <p>@data.Text</p>
+}
+
+@if (Model.Process == null)
+{
+<tr>
+    <div class="submit-button text-center">
+        You need to add Process for Diagram
+    </div>
+</tr>
+<tr>  
+</tr>
+<tr>
+</tr>
+}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <div class="submit-button text-center">
+                        <input type="button" class="btn btn-info" value="Generate Diagram Word" onclick="window.location= '@Url.Action( "GenerateWord", "DiagramSummary", new {  diagramId = Model.DiagramId } )'" />
+                    </div>
+                </th>
+                <th>
+                    <div class="submit-button text-center">
+                        <input type="button" class="btn btn-info" value="Generate Diagram Pdf" onclick="window.location= '@Url.Action( "GeneratePdf", "DiagramSummary", new {  diagramId = Model.DiagramId } )'" />
+                    </div>
+                </th>
+            </tr>
+        </thead>
+    </table>
+
+}
+
+@*<div class="submit-button text-center">
+        <input type="button" class="btn btn-info" value="Generate Diagram" onclick="window.location= '@Url.Action( "GenerateWord", "DiagramSummary", new {  diagramId = Model.DiagramId } )'" />
+    </div>*@

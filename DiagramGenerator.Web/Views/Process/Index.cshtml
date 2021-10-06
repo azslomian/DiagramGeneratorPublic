@@ -1,0 +1,83 @@
+﻿@model ProcessPageViewModel
+
+<div class="submit-button">
+    <input type="button" class="btn btn-info" value="Back" onclick="window.location= '@Url.Action( "EditDiagram", "Diagram", new { id = Model.DiagramId })'" />
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Purpose</th>
+            <th scope="col">Descritpion</th>
+            <th colspan="2">
+                @if (Model.Process == null)
+                {
+                    <div class="submit-button">
+                        <input type="button" class="btn btn-primary" value="Add Process" onclick="window.location= '@Url.Action("AddProcess", "Process", new { diagramId = Model.DiagramId })'" />
+                    </div>
+                }
+                </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Process != null)
+        {
+        <tr>
+            <td>@Model.Process.Lp</td>
+            <td>@Model.Process.Name</td>
+            <td>@Model.Process.Purpose</td>
+            <td>@Model.Process.Description</td>
+            <td><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditProcess", "Process", new { id = Model.Process.Id })'" /></td>
+            <td><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveProcess", "Process", new { id = Model.Process.Id, diagramId = Model.DiagramId })'" /></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Operations</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+            <th scope="col">Type</th>
+            <th scope="col">Number of Employees</th>
+            <th scope="col">Duration</th>
+            <th colspan="2">
+                @if (Model.Process != null)
+                {
+                    <div class="submit-button">
+                        <input type="button" class="btn btn-primary" value="Add Operation" onclick="window.location= '@Url.Action("AddOperation", "Operation", new { processId = Model.Process.Id })'" />
+                    </div>
+                }
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Process?.Operations != null)
+        {
+            @foreach (var data in Model.Process.Operations)
+            {
+            <tr>
+                <td>@data.Lp</td>
+                <td>@data.Name</td>
+                <td>@data.Description</td>
+                <td>@data.Type</td>
+                <td>@data.Employees</td>
+                <td>@data.TimeInMinutes</td>
+                <td><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action("EditOperation", "Operation", new { id = data.Id })'" /></td>
+                <td><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action("RemoveOperation", "Operation", new { id = data.Id })'" /></td>
+            </tr>
+            }
+        }
+        </tbody>
+</table>
+
+<div class="submit-button text-right">
+    <input type="button" class="btn btn-info" value="Next" onclick="window.location= '@Url.Action( "Index", "DiagramInput", new { diagramId = Model.DiagramId } )'" />
+</div>
+

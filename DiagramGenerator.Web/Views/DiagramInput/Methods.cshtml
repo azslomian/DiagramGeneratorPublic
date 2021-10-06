@@ -1,0 +1,52 @@
+﻿@model DiagramMethodPageViewModel
+
+<div class="submit-button">
+    <input type="button" class="btn btn-info" value="Back" onclick="window.location= '@Url.Action( "Index", "DiagramInput",  new { diagramId = Model.DiagramId })'" />
+</div>
+
+<h4>Methods</h4>
+
+@using (Html.BeginForm("SaveMethods", "DiagramInput", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.DiagramId)
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Lp</th>
+                <th scope="col">Name</th>
+                <th scope="col">Descritpion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Methods != null)
+            {
+                @for (var i = 0; i < Model.Methods.Count; i++)
+                {
+                    <tr>
+                        @Html.HiddenFor(model => model.Methods[i].Id)
+                        @Html.HiddenFor(model => model.Methods[i].Name)
+                        @Html.HiddenFor(model => model.Methods[i].Description)
+                        @Html.HiddenFor(model => model.Methods[i].DiagramId)
+                        @Html.HiddenFor(model => model.Methods[i].UserEmail)
+                        @Html.HiddenFor(model => model.Methods[i].Lp)
+                        <td>@Html.EditorFor(model => model.Methods[i].IsSelected)</td>
+                        <td>@Html.DisplayFor(model => model.Methods[i].Lp)</td>
+                        <td>@Html.DisplayFor(model => model.Methods[i].Name)</td>
+                        <td>@Html.DisplayFor(model => model.Methods[i].Description)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <div class="submit-button text-center">
+        <input type="submit" class="btn btn-info" value="Submit" />
+    </div>
+    <div class="text-success text-center">@ViewBag.UserMessage</div>
+}
+
+<div class="submit-button text-right">
+    <input type="button" class="btn btn-info" value="Next" onclick="window.location= '@Url.Action( "Requirements", "DiagramInput", new {  diagramId = Model.DiagramId } )'" />
+</div>
+

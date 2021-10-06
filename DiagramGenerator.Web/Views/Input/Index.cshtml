@@ -1,0 +1,209 @@
+﻿@model InputPageViewModel
+@*<h2>@ViewBag.PageTitle</h2>*@
+
+<h4>Equipment</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary"
+                           value="Add"
+                           onclick="window.location= '@Url.Action( "AddInput", "Input", new { type =  DiagramGenerator.DataAccess.Model.Enum.InputType.Equipment})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Inputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.InputType.Equipment))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditInput", "Input", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveInput", "Input", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h4>Materials</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddInput", "Input", new { type =  DiagramGenerator.DataAccess.Model.Enum.InputType.Material})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Inputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.InputType.Material))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditInput", "Input", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveInput", "Input", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h4>Human Resources</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddInput", "Input", new { type =  DiagramGenerator.DataAccess.Model.Enum.InputType.HumanResource})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Inputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.InputType.HumanResource))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditInput", "Input", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveInput", "Input", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h4>Documents</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddInput", "Input", new { type =  DiagramGenerator.DataAccess.Model.Enum.InputType.Document})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Inputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.InputType.Document))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditInput", "Input", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveInput", "Input", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<h4>Other</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddInput", "Input", new { type =  DiagramGenerator.DataAccess.Model.Enum.InputType.Other})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Inputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.InputType.Other))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditInput", "Input", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveInput", "Input", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+
+<br />
+<h4>Requirements</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddRequirement", "Input")'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Requirements)
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditRequirement", "Input", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveRequirement", "Input", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<br />
+<h4>Methods</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddMethod", "Input")'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Methods)
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditMethod", "Input", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveMethod", "Input", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>

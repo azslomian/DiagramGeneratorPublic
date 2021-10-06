@@ -1,0 +1,57 @@
+﻿@model DiagramInputPageViewModel
+
+<div class="submit-button">
+    <input type="button" class="btn btn-info" value="Back" onclick="window.location= '@Url.Action( "Index", "Process",  new { diagramId = Model.DiagramId })'" />
+</div>
+
+<h4>Inputs</h4>
+
+@using (Html.BeginForm("SaveInputs", "DiagramInput", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.DiagramId)
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Lp</th>
+                <th scope="col">Name</th>
+                <th scope="col">Descritpion</th>
+                <th scope="col">Type</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Inputs != null)
+            {
+                @for (var i = 0; i < Model.Inputs.Count; i++)
+                {
+                    <tr>
+                        @Html.HiddenFor(model => model.Inputs[i].Id)
+                        @Html.HiddenFor(model => model.Inputs[i].Name)
+                        @Html.HiddenFor(model => model.Inputs[i].Description)
+                        @Html.HiddenFor(model => model.Inputs[i].DiagramId)
+                        @Html.HiddenFor(model => model.Inputs[i].Type)
+                        @Html.HiddenFor(model => model.Inputs[i].UserEmail)
+                        @Html.HiddenFor(model => model.Inputs[i].Lp)
+                        <td>@Html.EditorFor(model => model.Inputs[i].IsSelected)</td>
+                        <td>@Html.DisplayFor(model => model.Inputs[i].Lp)</td>
+                        <td>@Html.DisplayFor(model => model.Inputs[i].Name)</td>
+                        <td>@Html.DisplayFor(model => model.Inputs[i].Description)</td>
+                        <td>@Html.DisplayFor(model => model.Inputs[i].Type)</td>
+                        <td>@Html.EditorFor(model => model.Inputs[i].Quantity, new { htmlAttributes = new { @type = "number", @min = "0", @step = "1", @value = "0" } })</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <div class="submit-button text-center">
+        <input type="submit" class="btn btn-info" value="Submit" />
+    </div>
+    <div class="text-success text-center">@ViewBag.UserMessage</div>
+}
+
+<div class="submit-button text-right">
+    <input type="button" class="btn btn-info" value="Next" onclick="window.location= '@Url.Action( "Methods", "DiagramInput", new {  diagramId = Model.DiagramId } )'" />
+</div>
+

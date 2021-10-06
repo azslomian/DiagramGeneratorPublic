@@ -1,0 +1,32 @@
+﻿@model IList<DiagramViewModel>
+
+@*<h2>@ViewBag.PageTitle</h2>*@
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Lp</th>
+            <th scope="col">Name</th>
+            <th scope="col">Descritpion</th>
+            <th colspan="3">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add Diagram" onclick="window.location= '@Url.Action( "AddDiagram", "Diagram")'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+        <tr>
+            <td>@data.Lp</td>
+            <td>@data.Name</td>
+            <td>@data.Description</td>
+            <td><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditDiagram", "Diagram", new { id = data.Id })'" /></td>
+            <td><input type="button" class="btn btn-primary" value="Generate" onclick="window.location= '@Url.Action( "Index", "DiagramSummary", new { diagramId = data.Id })'" /></td>
+            <td><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveDiagram", "Diagram", new { id = data.Id })'" /></td>
+        </tr>
+        }
+     </tbody>
+</table>

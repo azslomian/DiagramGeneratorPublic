@@ -1,0 +1,26 @@
+﻿@model IList<Operation>
+@section Scripts {
+    <script src="~/ts/shopper.js"></script>
+    <script src="~/ts/main.js"></script>
+}
+
+
+
+<h2>@ViewBag.PageTitle</h2>
+<p>@Model.Count()</p>
+<div class="row">
+    @foreach (var p in Model)
+    {
+        <div class="col-md-3">
+            <img src="~/img/duda.jpg" class="img-fluid" />
+            <h3>@p.Name</h3>
+            <ul>
+                <li>Price: $9.99</li>
+                <li>Artist: Van Gogh</li>
+                <li>Title: Say Hello</li>
+                <li>Description: @p.Description</li>
+            </ul>
+            <button id="buyButton" class="btn btn-success">Buy</button>
+        </div>
+    }
+</div>

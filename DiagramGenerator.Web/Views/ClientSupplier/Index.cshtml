@@ -1,0 +1,61 @@
+﻿@model ClientSupplierPageViewModel
+@*<h2>@ViewBag.PageTitle</h2>*@
+
+<h4>Clients</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary"
+                           value="Add"
+                           onclick="window.location= '@Url.Action( "AddClient", "ClientSupplier")'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Clients)
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditClient", "ClientSupplier", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveClient", "ClientSupplier", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h4>Suppliers</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th scope="col" colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddSupplier", "ClientSupplier")'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Suppliers)
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditSupplier", "ClientSupplier", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveSupplier", "ClientSupplier", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>

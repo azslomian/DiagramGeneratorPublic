@@ -1,0 +1,54 @@
+﻿@model DiagramClientsPageViewModel
+
+<div class="submit-button">
+    <input type="button" class="btn btn-info" value="Back" onclick="window.location= '@Url.Action( "Index", "Process",  new { diagramId = Model.DiagramId })'" />
+</div>
+
+<h4>Clients</h4>
+
+@using (Html.BeginForm("SaveClients", "DiagramClientSupplier", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.DiagramId)
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Lp</th>
+                <th scope="col">Name</th>
+                <th scope="col">Descritpion</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.Clients != null)
+            {
+                @for (var i = 0; i < Model.Clients.Count; i++)
+                {
+                    <tr>
+                        @Html.HiddenFor(model => model.Clients[i].Id)
+                        @Html.HiddenFor(model => model.Clients[i].Name)
+                        @Html.HiddenFor(model => model.Clients[i].Description)
+                        @Html.HiddenFor(model => model.Clients[i].DiagramId)
+                        @Html.HiddenFor(model => model.Clients[i].UserEmail)
+                        @Html.HiddenFor(model => model.Clients[i].Lp)
+                        <td>@Html.EditorFor(model => model.Clients[i].IsSelected)</td>
+                        <td>@Html.DisplayFor(model => model.Clients[i].Lp)</td>
+                        <td>@Html.DisplayFor(model => model.Clients[i].Name)</td>
+                        <td>@Html.DisplayFor(model => model.Clients[i].Description)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <div class="submit-button text-center">
+        <input type="submit" class="btn btn-info" value="Submit" />
+    </div>
+    <div class="text-success text-center">@ViewBag.UserMessage</div>
+}
+
+<div class="submit-button text-right">
+    <input type="button" class="btn btn-info" value="Next" onclick="window.location= '@Url.Action( "Index", "DiagramSummary", new {  diagramId = Model.DiagramId } )'" />
+</div>
+
+

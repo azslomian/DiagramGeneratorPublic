@@ -1,0 +1,66 @@
+﻿@model ContactViewModel
+@{
+    ViewBag.PageTitle = "Contact Us";
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}
+
+@*<h2>@ViewBag.Title</h2>*@
+<div class="col-md-6 offset-md-3">
+    <div class="card card-body bg-light">
+        <form method="post" class="theForm">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Name">Your Name:</label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email:</label>
+                <input type="email" asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Body">Description:</label>
+                <input type="text" asp-for="Body" class="form-control">
+                <span asp-validation-for="Body" class="text-warning"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Password">Password:</label>
+            <input asp-for="Password" class="form-control">
+            <span asp-validation-for="Password"  class="text-warning"></span>
+        </div>*@
+
+
+
+            @*<table>
+            <tr>
+                <td><label asp-for="Name">Name</label></td>
+                <td><input asp-for="Name" type="text" /></td>
+                <td  class="text-warning">@Html.ValidationMessageFor(m => m.Name)</td>
+            </tr>
+            <tr>
+                <td><label asp-for="Email">Email</label></td>
+                <td><input asp-for="Email" type="email" /></td>
+                <td  class="text-warning">@Html.ValidationMessageFor(m => m.Email)</td>
+            </tr>
+            <tr>
+                <td><label asp-for="Password">Passsword</label></td>
+                <td><input asp-for="Password" type="password" /></td>
+                <td  class="text-warning">@Html.ValidationMessageFor(m => m.Password)</td>
+            </tr>
+        </table>*@
+            <div class="form-group">
+                <div class="submit-button text-center">
+                    <button type="submit" value=" Send Message" class="btn btn-primary"><i class="fas fa-envelope-open"></i> Send Mail</button>
+                </div>
+                <div class="text-success text-center">
+                    @ViewBag.UserMessage
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

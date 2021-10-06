@@ -1,0 +1,40 @@
+﻿@model InputViewModel
+@{
+    ViewBag.PageTitle = "Edit " + EnumHelper<DiagramGenerator.DataAccess.Model.Enum.InputType>.GetDisplayValue(Model.Type);
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}
+
+<div class="submit-button">
+    <input type="button" class="btn btn-info" value="Back" onclick="window.location= '@Url.Action( "Index", "Input" )'" />
+</div>
+
+<div class="col-md-6 offset-md-3">
+    <div class="card card-body bg-light">
+        <form method="post" class="theForm" asp-action="EditInput" asp-controller="Input">
+            <div asp-validation-summary="ModelOnly"></div>
+            @Html.HiddenFor(x => x.Id)
+            @Html.HiddenFor(x => x.Lp)
+            @Html.HiddenFor(x => x.Type)
+            <div class="form-group">
+                <label asp-for="Name">Input Name:</label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Description:</label>
+                <input type="text" asp-for="Description" class="form-control">
+                <span asp-validation-for="Description" class="text-warning"></span>
+            </div>
+            <div class="form-group">
+                <div class="submit-button text-center">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+                <div class="text-success text-center">@ViewBag.UserMessage</div>
+            </div>
+        </form>
+    </div>
+</div>

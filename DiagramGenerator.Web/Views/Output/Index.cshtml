@@ -1,0 +1,118 @@
+﻿@model OutputPageViewModel
+@*<h2>@ViewBag.PageTitle</h2>*@
+
+
+<h4>Products</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddOutput", "Output", new { type =  DiagramGenerator.DataAccess.Model.Enum.OutputType.Product})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Outputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.OutputType.Product))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditOutput", "Output", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveOutput", "Output", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>Documents</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddOutput", "Output", new { type =  DiagramGenerator.DataAccess.Model.Enum.OutputType.Document})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Outputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.OutputType.Document))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditOutput", "Output", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveOutput", "Output", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>Other</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddOutput", "Output", new { type =  DiagramGenerator.DataAccess.Model.Enum.OutputType.Other})'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Outputs.Where(x => x.Type == DiagramGenerator.DataAccess.Model.Enum.OutputType.Other))
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditOutput", "Output", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveOutput", "Output", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<br />
+<h4>Criteria</h4>
+<table class="table table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th scope="col" class="col-3">Lp</th>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-4">Descritpion</th>
+            <th colspan="2" class="col-2">
+                <div class="submit-button">
+                    <input type="button" class="btn btn-primary" value="Add" onclick="window.location= '@Url.Action( "AddCriterion", "Output")'" />
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model.Criteria)
+        {
+            <tr class="d-flex">
+                <td class="col-3">@data.Lp</td>
+                <td class="col-3">@data.Name</td>
+                <td class="col-4">@data.Description</td>
+                <td class="col-1"><input type="button" class="btn btn-info" value="Edit" onclick="window.location= '@Url.Action( "EditCriterion", "Output", new { id = data.Id })'" /></td>
+                <td class="col-1"><input type="button" class="btn btn-danger" value="Remove" onclick="window.location= '@Url.Action( "RemoveCriterion", "Output", new { id = data.Id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />

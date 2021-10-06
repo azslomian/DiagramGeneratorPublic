@@ -1,0 +1,11 @@
+﻿@model DiagramOutputViewModel
+
+<tr>
+    <td>@Html.CheckBox("commId", new { value = Model.IsSelected })</td>
+    <td>@Model.Id</td>
+    <td>@Model.Name</td>
+    <td>@Model.Description</td>
+    <td>@Model.Type</td>
+    <td>@Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @type = "number", @min = "0", @step = "1", @value = "0" } })</td>
+</tr>
+
